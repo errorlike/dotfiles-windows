@@ -1,0 +1,160 @@
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+""" Map leader to space ---------------------
+let mapleader=" "
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+set hlsearch
+" Do incremental searching.
+set incsearch
+" 设置相对行号
+set relativenumber
+set ignorecase
+set smartcase
+set visualbell
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+noremap U <c-r>
+noremap J 10j
+noremap K 10k
+inoremap jk <esc>
+noremap <leader>j J
+noremap <leader>y "*y
+noremap <leader>p "*p
+noremap <leader>P "*P
+noremap <leader>to :tabo<cr>
+" remove highlight
+nnoremap <esc> :nohlsearch<cr>
+
+" go to the left split
+map <C-h> <C-w>h
+" go to the bottom split
+map <C-j> <C-w>j
+" go to the top split
+map <C-k> <C-w>k
+" go to the right split
+map <C-l> <C-w>l
+map <leader>wv <Action>(SplitVertically)
+map <leader>ws <Action>(SplitHorizontally)
+map <leader>ww <Action>(Unsplit)
+map <leader>wa <Action>(UnsplitAll)
+" Highlight copied text
+set highlightedyank
+set showmode
+set ideajoin
+set surround
+set textobj-entire
+set ReplaceWithRegister
+set easymotion
+set argtextobj
+set NERDTree
+set commentary
+""" Plugin settings -------------------------
+let g:argtextobj_pairs="[:],(:),<:>"
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+map \b <Action>(ToggleLineBreakpoint)
+let g:highlightedyank_highlight_duration = "100"
+let g:EasyMotion_do_mapping=0
+map s <Plug>(easymotion-s)
+ounmap s
+omap gs <Plug>(easymotion-s)
+
+map <leader>gr "*gr
+map <leader>sc <Action>(GotoClass)
+map <leader>sf <Action>(GotoFile)
+map <leader>so <Action>(GotoSymbol)
+map <leader>sp <action>(GotoAction)
+map gI <Action>(GotoImplementation)
+
+map gh <Action>(ShowHoverInfo)
+map gy <Action>(GotoTypeDeclaration)
+
+
+map <leader>oi <Action>(OptimizeImports)
+
+nmap H <Action>(PreviousTab)
+nmap L <Action>(NextTab)
+omap H ^
+omap L g_
+vmap H ^
+vmap L g_
+
+map <A-j> <Action>(MoveLineDown)
+map <A-k> <Action>(MoveLineUp)
+map <A-h> <Action>(EditorUnSelectWord)
+map <A-l> <Action>(EditorSelectWord)
+"" debug
+"" map <leader>dc <Action>(DebugClass)
+"" run
+map <leader>rc <Action>(RunClass)
+map <leader>rp <Action>(Run)
+
+imap <c-v> <Action>(EditorPaste)
+map go <Action>(EditorStartNewLine)
+map gO <Action>(EditorStartNewLineBefore)
+"" rename
+map <leader>rn <Action>(RenameElement)
+map <leader>dp <Action>(Debug)
+map <leader>rr <Action>($LRU)
+map \t <Action>(GotoTest)
+map gac <Action>(StringManipulation.ToCamelCase)
+map gas <Action>(StringManipulation.ToSnakeCase)
+map gaa <Action>(StringManipulation.ToScreamingSnakeCase)
+
+map <leader>rf <Action>(Refactorings.QuickListPopupAction)
+map <leader>sa <Action>(Generate)
+
+map ]e <Action>(GotoNextError)
+map [e <Action>(GotoPreviousError)
+
+map <leader>qc <Action>(CloseContent)
+map <leader>qa <Action>(CloseAllEditors)
+
+map <leader>fn <Action>(NewFile)
+map <leader>fd <Action>(NewDir)
+map <leader>fr <Action>(RecentFiles)
+map <leader>ss <Action>(FileStructurePopup)
+map <leader>fs <Action>(NewScratchFile)
+
+map gR <Action>(ShowUsages)
+map <leader>gR <Action>(FindUsages)
+
+
+map <leader>vs <Action>(ViewSource)
+map <leader>im <Action>(QuickImplementations)
+map <leader>td <Action>(QuickTypeDefinition)
+map <leader>ti <Action>(ExpressionTypeInfo)
+map <leader>sw <Action>(SurroundWith)
+
+map <leader>re <Action>(RenameFile)
+map <leader>cp <Action>(CopyAbsolutePath)
+map <leader>cn <Action>(CopyFileName)
+map <leader>cr <Action>(CopyContentRootPath)
+
+map <leader>ll <Action>(RecentLocations)
+map <leader>sr <Action>(ReplaceInPath)
+map <leader>/ <Action>(FindInPath)
+
+map \e <Action>(HideAllWindows)
+map <leader>ri <Action>(RestartIde)
+map <leader>uz <Action>(ToggleDistractionFreeMode)
+map <leader>uw <Action>(EditorToggleUseSoftWraps)
+map [f <Action>(MethodUp)
+map ]f <Action>(MethodDown)
+
+map <leader>of <Action>(OpenFile)
+map <leader>gs <Action>(GotoSuperMethod)
+map <leader>uf <action>(ToggleFullScreen)
+map <leader>dc <Action>(ChooseDebugConfiguration)
+map <leader>vb <Action>(ViewBreakpoints)
+map <leader>fw <Action>(OpenProjectWindows)
